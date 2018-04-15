@@ -12,4 +12,6 @@ Description: Models a single 'string' of a fretted string instrument, in the
     classes lie.
 '''
 
-
+class String:
+    def __init__(self, open_note, fret_count):
+        

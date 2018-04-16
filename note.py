@@ -77,7 +77,7 @@ class PitchClass:
     def __init__(self, pclass):
         self.pclass = None
         if(isinstance(pclass, int)):
-            self.pclass = pclass
+            self.pclass = pclass % 12
         elif(isinstance(pclass, tuple) or isinstance(pclass, list)):
             self.pclass = pclass[1]
         elif(isinstance(pclass, str)):
@@ -102,6 +102,8 @@ class Pitch:
         if(isinstance(pitch, int)):
             self.pitch = pitch
         elif(isinstance(pitch, tuple) or isinstance(pitch, list)):
+            self.pitch = 12*pitch[0] + pitch[1]
+        elif(isinstance(pitch, Pitch)):
             self.pitch = pitch.pitch
 
     def pclass(self):
@@ -111,3 +113,29 @@ class Pitch:
         ret = None
         if(self.pitch >= 0):
             ret = self.pitch / 12
+
+    def __add__(self, other):
+        return Pitch(self.pitch + other)
+
+    def __sub__(self, other):
+        if(isinstance(other, Pitch)):
+            return self.pitch - other.pitch
+        return Pitch(self.pitch - other)
+
+    def __lt__(self, other):
+        return (self.pitch < Pitch(other).pitch)
+
+    def __le__(self, other):
+        return (self.pitch <= Pitch(other).pitch)
+    
+    def __gt__(self, other):
+        return (self.pitch > Pitch(other).pitch)
+
+    def __ge__(self, other):
+        return (self.pitch >= Pitch(other).pitch)
+
+    def __eq__(self, other):
+        return (self.pitch == Pitch(other).pitch)
+
+    def __ne__(self, other):
+        return (self.pitch != Pitch(other).pitch)

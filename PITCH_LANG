@@ -1,0 +1,20 @@
+PITCH_LANG
+
+Max Gambee
+Brady Pearson
+
+Copyright 2018
+
+Description:
+    This is a language spec for the strings that pclass parses into PitchClass objects
+
+The Natural Pitch Letters:
+	C:	0
+	D:	2
+	E:	4
+	F:	5
+	G:	7
+	A:	9
+	B:	11
+
+

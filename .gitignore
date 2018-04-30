@@ -1,2 +1,3 @@
 *.swp
 *Makefile
+__pycache__/*

@@ -1,0 +1,7 @@
+# An example fret diagram file
+
+title: A Major
+string_count: 6
+tuning: ['e4', 'a4', 'd5', 'g5', 'b5', 'e6']
+fret_range: [0, 5]
+fingerings: [[0, 1], [1, 3], [2, 3], [3, 2], [4, 1], [5, 1]]

@@ -5,25 +5,36 @@
 </head>
 <body>
 <svg height="550px" width="650px" viewBox="-50 -50 600 500">
-    <line x1="0" y1="0" x2="375" y2="0" stroke="black" stroke-width="1"/>
-    <line x1="0" y1="100" x2="375" y2="100" stroke="black" stroke-width="1"/>
-    <line x1="0" y1="200" x2="375" y2="200" stroke="black" stroke-width="1"/>
-    <line x1="0" y1="300" x2="375" y2="300" stroke="black" stroke-width="1"/>
-    <line x1="0" y1="400" x2="375" y2="400" stroke="black" stroke-width="1"/>
+    <defs>
+        <g>
+            <symbol id="circ">
+                <circle cx="25" cy="25" r="25" />
+            </symbol>
+        </g>
+    </defs>
 
-    <line x1="0" y1="0" x2="0" y2="400" stroke="black" stroke-width="1"/>
-    <line x1="75" y1="0" x2="75" y2="400" stroke="black" stroke-width="1"/>
-    <line x1="150" y1="0" x2="150" y2="400" stroke="black" stroke-width="1"/>
-    <line x1="225" y1="0" x2="225" y2="400" stroke="black" stroke-width="1"/>
-    <line x1="300" y1="0" x2="300" y2="400" stroke="black" stroke-width="1"/>
-    <line x1="375" y1="0" x2="375" y2="400" stroke="black" stroke-width="1"/>
+    <line
+        x1="0" y1="0" x2="375" y2="0"
+        stroke="black" stroke-width="10"
+        stroke-linecap="square"/>
+    <line x1="0" y1="100" x2="375" y2="100" stroke="black" stroke-width="2"/>
+    <line x1="0" y1="200" x2="375" y2="200" stroke="black" stroke-width="2"/>
+    <line x1="0" y1="300" x2="375" y2="300" stroke="black" stroke-width="2"/>
+    <line x1="0" y1="400" x2="375" y2="400" stroke="black" stroke-width="2"/>
 
-    <circle cx="0" cy="50" r="25" />
-    <circle cx="75" cy="250" r="25" />
-    <circle cx="150" cy="250" r="25" />
-    <circle cx="225" cy="150" r="25" />
-    <circle cx="300" cy="50" r="25" />
-    <circle cx="375" cy="50" r="25" />
+    <line x1="0" y1="0" x2="0" y2="400" stroke="black" stroke-width="2"/>
+    <line x1="75" y1="0" x2="75" y2="400" stroke="black" stroke-width="2"/>
+    <line x1="150" y1="0" x2="150" y2="400" stroke="black" stroke-width="2"/>
+    <line x1="225" y1="0" x2="225" y2="400" stroke="black" stroke-width="2"/>
+    <line x1="300" y1="0" x2="300" y2="400" stroke="black" stroke-width="2"/>
+    <line x1="375" y1="0" x2="375" y2="400" stroke="black" stroke-width="2"/>
+
+    <use x="0" y="50" xlink:href="#circ" transform="translate(-25, -25)"/>
+    <use x="75" y="250" xlink:href="#circ" transform="translate(-25, -25)"/>
+    <use x="150" y="250" xlink:href="#circ" transform="translate(-25, -25)"/>
+    <use x="225" y="150" xlink:href="#circ" transform="translate(-25, -25)"/>
+    <use x="300" y="50" xlink:href="#circ" transform="translate(-25, -25)"/>
+    <use x="375" y="50" xlink:href="#circ" transform="translate(-25, -25)"/>
 </svg>
 </body>
 </html>

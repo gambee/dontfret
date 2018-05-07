@@ -72,7 +72,12 @@ class FretDiagram:
         if 'offset' in args:
             self.offset = args['offset']
         else:
-            self.offset = 50
+            self.offset = 100
+
+        if 'label_size' in args:
+            self.label_size = args['label_size']
+        else:
+            self.label_size = 45
 
     def __str__(self):
         # establish geometry
@@ -111,6 +116,17 @@ class FretDiagram:
            'tagname': 'defs',
            'contents': [g]
            })
+
+        label = XMLTag({
+            'tagname': 'text',
+            'properties': [
+                Property('x', '-10'),
+                Property('y', str(self.label_size / 3)),
+                Property('text-anchor', 'end'),
+                Property('font-size', str(self.label_size))
+                ],
+            'contents': [ 'Nut' if self.fret_min == 0 else str(self.fret_min) ]
+            })
 
         strings = []
         for i in range(self.string_count):
@@ -152,6 +168,21 @@ class FretDiagram:
             frets[0]['stroke-width'] = '10'
             frets[0]['stroke-linecap'] = 'square'
 
+        fingerings = []
+        for fngr in self.fingerings:
+            fingerings += [
+                XMLTag({
+                    'tagname': 'use',
+                    'closed': 'True',
+                    'properties': [
+                        Property('x', str(fngr[0] * self.base_width)),
+                        Property('y', str((fngr[1] - 0.5) * self.base_width * self.ratio)),
+                        Property('xlink:href', '#circ'),
+                        Property('transform', 'translate(-25, -25)')
+                        ]
+                    })
+                ]
+
         svg = XMLTag({
             'tagname': 'svg',
             'properties': [
@@ -162,7 +193,7 @@ class FretDiagram:
                     str(vbox[0]) + ' ' + str(vbox[1]) + ' ' 
                         + str(vbox[2]) + ' ' + str(vbox[3]))
                     ],
-            'contents': [defs] + frets + strings
+            'contents': [defs, label] + frets + strings + fingerings
                 })
 
         html = HtmlDocument([svg])

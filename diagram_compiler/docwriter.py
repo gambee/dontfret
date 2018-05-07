@@ -46,7 +46,10 @@ class DocElement:
             indent += "  "
         s = indent + self.header + '\n'
         for element in self.contents:
-            s += element._str_(depth + 1) + '\n'
+            if(isinstance(element, DocElement)):
+                s += element._str_(depth + 1) + '\n'
+            else:
+                s += str(element) + '\n'
         s += indent + self.footer
         return s
 
